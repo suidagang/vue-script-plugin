@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js"></script>
+    <script id="loading-script" src="./comLoading/index.js?flagPath=./comLoading/"></script>
+    <script id="v-loading-script" src="./comVloading/vLoading.js?flagPath=./comVloading/"></script>
+    <script src="./comMixinFilter/filter.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{ number | $_filterType}}</div>
+        <button @click="testa" v-loading="inShow" style="position: relative;height: 40px;width: 120px;border: 1px solid #ccc;text-align: center;line-height: 40px;">{{test}}</button>
+    </div>
+    <script>
+        window.app = new Vue({
+            el: "#app",
+            data: function () {
+                return {
+                   test:"测试一下",
+                   inShow:false,
+                   number:1
+                }
+            },
+            created: function () {
+                var _self = this;
+               
+            },
+            mounted: function () {
+                var _self = this;
+                var loadingsg = this.$loadingsg({ text: '正在加载。。。' });
+                // 三秒钟后关闭
+                setTimeout(() => {
+                    loadingsg.close();
+                }, 5000);
+            },
+            methods: {
+                testa(){
+                    var _self = this;
+                    _self.inShow = true;
+                    setTimeout(()=>{
+                        _self.inShow = false
+                    },3000)
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

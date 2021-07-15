@@ -1,0 +1,24 @@
+.com-loading-text {
+    color: red;
+}
+
+.com-loading-mask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.2);
+    height: 100%;
+    width: 100%;
+}
+/* 去掉双击选中文字 */
+div{
+    -moz-user-select:none;/*火狐*/
+    -webkit-user-select:none;/*webkit浏览器*/
+    -ms-user-select:none;/*IE10*/
+    -khtml-user-select:none;/*早期浏览器*/
+    user-select:none;
+}
+/* 去掉双击选中文字 */
